@@ -35,6 +35,10 @@ class LinkedList:
         return self.head == None
 
     def add(self, value):
+
+        if self.search(value):
+             raise DuplicateError
+
         node = Node(value)
         node.set_next(self.head)
         self.head = node
