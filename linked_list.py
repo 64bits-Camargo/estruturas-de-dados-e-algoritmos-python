@@ -74,6 +74,7 @@ class LinkedList:
         else:
             prev.set_next(curr.get_next())
 
+
 class TestNodeMethods(unittest.TestCase):
     
     def setUp(self):
