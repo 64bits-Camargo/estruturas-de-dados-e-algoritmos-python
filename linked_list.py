@@ -44,7 +44,8 @@ class LinkedList:
 if __name__ == '__main__':
     linked_list = LinkedList()
     
-    for i in range(2):
+    for i in range(10):
         linked_list.add(i)
 
-    linked_list.size()
+    print('Is empty:', linked_list.is_empty())
+    print('Size:', linked_list.size())
