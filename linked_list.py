@@ -40,6 +40,16 @@ class LinkedList:
         
         return count
 
+    def search(self, value):
+        curr = self.head
+        
+        while curr != None:
+            if curr.get_value() == value:
+                return curr
+            else: 
+                curr = curr.get_next()
+    
+        return None
 
 if __name__ == '__main__':
     linked_list = LinkedList()
