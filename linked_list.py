@@ -25,6 +25,7 @@ class Node:
         return 'Node(value={value},next={next_value})'\
             .format(value=self.value, next_value=self.next)
 
+
 class LinkedList:
 
     def __init__(self):
