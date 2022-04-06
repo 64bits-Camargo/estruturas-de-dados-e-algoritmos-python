@@ -1,3 +1,8 @@
+from math import (pi, tau, inf, e)
+
+import unittest
+
+
 class Node:
 
     def __init__(self, value):
@@ -51,6 +56,26 @@ class LinkedList:
     
         return None
 
+
+class TestNodeMethods(unittest.TestCase):
+    
+    def setUp(self):
+        self.node = Node(round(31.4 / 10, 2))
+        
+    def test_get_value(self):
+        self.assertEqual(self.node.get_value(), round(pi, 2))
+    
+    def test_set_value(self):
+        self.node.set_value(tau)
+        self.assertEqual(self.node.get_value(), tau)
+    
+    def test_get_next_value_none(self):
+        self.assertIsNone(self.node.get_next())
+    
+    def test_set_next_value(self):
+        new_node = Node(e)
+        self.node.set_next(new_node)
+        self.assertEqual(self.node.get_next(), new_node)
 if __name__ == '__main__':
     linked_list = LinkedList()
     
