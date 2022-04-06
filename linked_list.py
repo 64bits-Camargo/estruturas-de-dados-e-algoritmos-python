@@ -3,6 +3,13 @@ from math import (pi, tau, inf, e)
 import unittest
 
 
+class DuplicateError(Exception):
+
+    def __init__(self):
+        self.message = "Error adding Item, duplicate item"
+        super().__init__(self.message)
+
+
 class Node:
 
     def __init__(self, value):
