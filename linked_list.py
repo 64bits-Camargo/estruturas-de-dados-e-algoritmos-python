@@ -76,11 +76,21 @@ class TestNodeMethods(unittest.TestCase):
         new_node = Node(e)
         self.node.set_next(new_node)
         self.assertEqual(self.node.get_next(), new_node)
-if __name__ == '__main__':
-    linked_list = LinkedList()
-    
-    for i in range(10):
-        linked_list.add(i)
 
-    print('Is empty:', linked_list.is_empty())
-    print('Size:', linked_list.size())
+    
+class TestLinkedListMethods(unittest.TestCase):
+    
+    def setUp(self):
+        self.linked_list = LinkedList()
+    
+    def test_is_empty_true(self):
+        self.assertTrue(self.linked_list.is_empty())
+    
+    def test_is_empty_false(self):
+        for i in range(2):
+            self.linked_list.add(i)
+        self.assertFalse(self.linked_list.is_empty())
+
+
+if __name__ == '__main__':
+    unittest.main()
