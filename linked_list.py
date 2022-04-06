@@ -21,6 +21,9 @@ class Node:
     def set_next(self, value):
         self.next = value
 
+    def __str__(self):
+        return 'Node(value={value},next={next_value})'\
+            .format(value=self.value, next_value=self.next)
 
 class LinkedList:
 
@@ -56,6 +59,19 @@ class LinkedList:
     
         return None
 
+    def remove(self, value):
+        curr = self.head
+        prev = None
+        
+        search_item = self.search(value)
+
+        prev = search_item
+        curr = search_item.get_next()
+        
+        if prev == None:
+            self.head = curr.get_next()
+        else:
+            prev.set_next(curr.get_next())
 
 class TestNodeMethods(unittest.TestCase):
     
