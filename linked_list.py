@@ -28,9 +28,9 @@ class Node:
     def set_next(self, value):
         self.next = value
 
-    def __str__(self):
-        return 'Node(value={value},next={next_value})'\
-            .format(value=self.value, next_value=self.next)
+    def __repr__(self):
+        return 'Node(value={value}, next={next_value})'\
+            .format(value=self.value, next_value=self.next.get_value())
 
 
 class LinkedList:
