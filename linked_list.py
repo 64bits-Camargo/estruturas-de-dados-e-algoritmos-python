@@ -75,10 +75,12 @@ class LinkedList:
         curr = self.head
         prev = None
         
-        search_item = self.search(value)
-
-        prev = search_item
-        curr = search_item.get_next()
+        while True:
+            if curr.get_value() == value:
+                break
+            else:
+                prev = curr
+                curr = curr.get_next()
         
         if prev == None:
             self.head = curr.get_next()
