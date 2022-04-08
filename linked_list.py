@@ -2,6 +2,21 @@ from math import (pi, tau, inf, e)
 
 import unittest
 
+"""
+
+Lista Encadeada
+---------------
+
+Uma lista encadeada ou lista ligada é uma estrutura de dados 
+linear e dinâmica. Um conjunto de nós ligados um ao outro, 
+formando uma sequência encadeada. 
+
+O nó ira armazenar duas informações: 
+     - valor; 
+     - referência do próximo nó;
+
+"""
+
 
 class DuplicateError(Exception):
 
@@ -74,7 +89,7 @@ class LinkedList:
     def remove(self, value):
         curr = self.head
         prev = None
-        
+
         while True:
             if curr.get_value() == value:
                 break
