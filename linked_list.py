@@ -58,8 +58,8 @@ class LinkedList:
 
     def add(self, value):
 
-        if self.search(value):
-             raise DuplicateError
+        if self.search(value): 
+            raise DuplicateError
 
         node = Node(value)
         node.set_next(self.head)
