@@ -1,4 +1,5 @@
 import json
+from math import pi
 
 class DuplicateKeyError(Exception):
 
@@ -45,28 +46,14 @@ class HashTable:
             
     def __repr__(self):
         return 'HashTable(table={result})'.\
-            format(result=json.dumps(self.tables))
+            format(result=json.dumps(self.tables, indent=2))
             
 
 if __name__ == '__main__':
     hash_table = HashTable()
-
-    print(hash_table)
     
-    hash_table['Nome'] = 'Mateus 1'
-    del hash_table['Nome']
-    # hash_table.insert('Nome', 'Mateus 1')
-    # # hash_table.insert('Nome', 'Mateus 1') 
-    # hash_table.insert('Noma', 'Mateus 2') 
-    # hash_table.insert('Nomi', 'Mateus 3')
-    # hash_table.insert('Nomo', 'Mateus 4')
-    # hash_table.insert('Nom2', 'Mateus 5')
-    # hash_table.insert('No2m2', 'Mateus 6')
-    # hash_table.insert('No2m322', 'Mateus 326')
-    # hash_table.insert('No2m323322', 'Mate3232us 326')
-    # hash_table.insert('No32322m323322', 'Mate3232us 326')
-    # hash_table.insert('3232322', 'Mate3232us 326')
-
-    # hash_table.insert('3232DSDS322', 'Mate3DSSD232us 326')
-
-    print(hash_table)
+    for i in range(100):
+        hash_table[i] = round(i * pi, 2)
+     
+    for index, table in enumerate(hash_table.tables):
+        print("Table {index} ->".format(index=index+1), table)
