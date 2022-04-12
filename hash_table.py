@@ -6,7 +6,6 @@ class DuplicateKeyError(Exception):
         self.message = "Error adding key, duplicate key '{key}'".format(key=key)
         super().__init__(self.message)
 
-
 class HashTable:
     
     def __init__(self, size=10):
@@ -18,14 +17,12 @@ class HashTable:
     
     def __setitem__(self, key, value):
         hash_key = self.hashing(key)
-        
         if self.table[hash_key]:
             for index, k_value in enumerate(self.table[hash_key]):
                 k, v = k_value
                 if key == k:
                     self.table[hash_key][index] = ((key, value))
                     break
-                
         self.table[hash_key].append((key, value))
     
     def __getitem__(self, key):
@@ -36,6 +33,16 @@ class HashTable:
                 if key == k:
                     return v
     
+    def __delitem__(self, key):
+        hash_key = self.hashing(key)
+        if self.table[hash_key]:
+            for index, k_value in enumerate(self.table[hash_key]):
+                k, v = k_value
+                if key == k:
+                    del self.table[hash_key][index]
+                    return
+        raise KeyError
+            
     def __repr__(self):
         return 'HashTable(table={result})'.\
             format(result=json.dumps(self.table))
@@ -47,6 +54,7 @@ if __name__ == '__main__':
     print(hash_table)
     
     hash_table['Nome'] = 'Mateus 1'
+    del hash_table['Nome']
     # hash_table.insert('Nome', 'Mateus 1')
     # # hash_table.insert('Nome', 'Mateus 1') 
     # hash_table.insert('Noma', 'Mateus 2') 
