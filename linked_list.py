@@ -54,7 +54,7 @@ class LinkedList:
         self.head = None
 
     def is_empty(self):
-        return self.head == None
+        return self.head is None
 
     def add(self, value):
 
@@ -69,7 +69,7 @@ class LinkedList:
         count = 0
         curr = self.head
 
-        while curr != None:
+        while curr is not None:
             count += 1
             curr = curr.get_next()
         
@@ -78,7 +78,7 @@ class LinkedList:
     def search(self, value):
         curr = self.head
         
-        while curr != None:
+        while curr is not None:
             if curr.get_value() == value:
                 return curr
             else: 
@@ -97,7 +97,7 @@ class LinkedList:
                 prev = curr
                 curr = curr.get_next()
         
-        if prev == None:
+        if prev is None:
             self.head = curr.get_next()
         else:
             prev.set_next(curr.get_next())
