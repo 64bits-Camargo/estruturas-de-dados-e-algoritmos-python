@@ -64,7 +64,7 @@ class NodeTree:
                     self.node_right = self.node_right.delete(key)
 
     def find_min(self, parent):
-        if self.left:
+        if self.node_left:
             return self.find_min(self)
         else:
             return parent, self
