@@ -1,27 +1,29 @@
 class NodeTree:
 
-    def __init__(self, key=None):
+    def __init__(self, key=None, value=None):
         self.key = key
+        self.value = value
         self.node_left = None
         self.node_right = None
 
-    def add(self, key):
+    def add(self, key, value):
         if key is None:
             return
 
         if self.key:
             if key <= self.key:
                 if self.node_left is None:
-                    self.node_left = NodeTree(key)
+                    self.node_left = NodeTree(key, value)
                 else:
-                    self.node_left.add(key)
+                    self.node_left.add(key, value)
             elif key >= self.key:
                 if self.node_right is None:
-                    self.node_right = NodeTree(key)
+                    self.node_right = NodeTree(key, value)
                 else:
-                    self.node_right.add(key)
+                    self.node_right.add(key, value)
         else:
             self.key = key
+            self.value = value
 
     def search(self, key):
         if key < self.key:
@@ -33,7 +35,7 @@ class NodeTree:
                 raise ValueError
             return self.node_right.search(key)
         else:
-            return self.key
+            return self.value
 
     def delete(self, key):
         if self.key == key:
@@ -71,7 +73,7 @@ class NodeTree:
         if self.node_left:
             self.node_left.print_tree()
 
-        print(self.key)
+        print(self.key, self.value)
 
         if self.node_right:
             self.node_right.print_tree()
@@ -88,7 +90,7 @@ if __name__ == '__main__':
     binary_tree = NodeTree()
 
     for i in [27, 14, 35, 31, 10, 19]:
-        binary_tree.add(i)
+        binary_tree.add(i, hex(i*101))
 
     binary_tree.print_tree()
 
