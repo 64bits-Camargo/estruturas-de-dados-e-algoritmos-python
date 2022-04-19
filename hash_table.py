@@ -5,7 +5,8 @@ from math import pi
 class DuplicateKeyError(Exception):
 
     def __init__(self, key):
-        self.message = "Error adding key, duplicate key '{key}'".format(key=key)
+        self.message = "Error adding key, duplicate key '{key}'". \
+            format(key=key)
         super().__init__(self.message)
 
 
@@ -54,8 +55,11 @@ class HashTable:
 if __name__ == '__main__':
     hash_table = HashTable()
 
-    for i in range(100):
-        hash_table[i] = round(i * pi, 2)
+    for i in range(143):
+        hash_table[i] = hex(round(i * pi))
 
     for index, table in enumerate(hash_table.tables):
-        print("Table {index} -> {table}".format(index=index + 1, table=table))
+        print("Table {index} -> {table} Len -> {len}".
+              format(index=index + 1,
+                     table=table,
+                     len=len(table)))
